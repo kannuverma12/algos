@@ -2,6 +2,21 @@ package com.my.strings;
 
 public class StringPermutation {
 
+	private static void permutation(String perm, String word) {
+	       if (word.isEmpty()) {
+	           System.err.println(perm + word);
+
+	       } else {
+	           for (int i = 0; i < word.length(); i++) {
+	               //System.out.println("first prams:"+perm + word.charAt(i) +"second params::"+);
+	               permutation(perm + word.charAt(i),
+	                               word.substring(0, i) + word.substring(i + 1, word.length())
+	                               );
+	           }
+	       }
+
+	   }
+	
     public static void main(String[] args)
     {
 //        String str = "aban";
@@ -11,6 +26,9 @@ public class StringPermutation {
         
         boolean b = isAnagram("abb","ba");
         System.out.println("b  = "+b);
+        
+        permute("abc",0,2);
+        
     }
  
     public static boolean isAnagram(String word, String anagram){ 
@@ -33,7 +51,7 @@ public class StringPermutation {
      * @param l starting index
      * @param r end index
      */
-    private void permute(String str, int l, int r)
+    private static void permute(String str, int l, int r)
     {
     	str = str.toLowerCase();
         if (l == r){
@@ -60,7 +78,7 @@ public class StringPermutation {
      * @param j position 2
      * @return swapped string
      */
-    public String swap(String a, int i, int j)
+    public static String swap(String a, int i, int j)
     {
         char temp;
         char[] charArray = a.toCharArray();

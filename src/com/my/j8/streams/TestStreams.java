@@ -509,6 +509,8 @@ public class TestStreams {
 		
 		flatMapTest();
 		
+		groupByRange();
+		
 		
 	}
 	
@@ -566,6 +568,8 @@ public class TestStreams {
 		    	                    return list1;
 		    	                }
 		    	           )));
+		
+		
 
 		
 		for(Entry<Integer, List<Course>> en : result.entrySet()) {
@@ -575,6 +579,8 @@ public class TestStreams {
 		}
 		
 		//System.out.println("result = "+result);
+		
+		
 		
 		
 	}
@@ -589,7 +595,72 @@ public class TestStreams {
 	                }
 	           );
 	}
+	
+	public static void groupByRange() {
+		List<MyBigDecimal> bigDecimals = new ArrayList<MyBigDecimal>();
+		for(int i =0; i<= 10; i++) {
+			MyBigDecimal md = new MyBigDecimal();
+			if(i>0 && i<= 2)
+				md.setRange(1);
+			else if(i>2 && i<= 5)
+				md.setRange(2);
+			else if(i>5 && i<= 7)
+				md.setRange(3);
+			else
+				md.setRange(4);
+			md.setValue(i);
+			
+			bigDecimals.add(md);
+		}
+		
+		
+		Map<Integer, List<MyBigDecimal>>  result = bigDecimals.stream()
+		        .collect(Collectors.groupingBy(e -> e.getRange(), 
+		        		Collector.of(
+		    	                ArrayList :: new, 
+		    	                (list, elem) -> { 
+		    	                						if (list.size() < 2) 
+		    	                							list.add(elem); 
+		    	                					}, 
+		    	                (list1, list2) -> {
+		    	                		 list1.addAll(list2);
+		    	                    return list1;
+		    	                }
+		    	           )));
+		
+		for(Entry<Integer, List<MyBigDecimal>> en : result.entrySet()) {
+			int in = en.getKey();
+			List<MyBigDecimal> cours  = en.getValue();
+			System.out.println("Key Range = "+in + " , List Size : "+cours.size());
+		}
+		
+		
+	}
 
+}
+
+
+
+class MyBigDecimal{
+	private int range;
+	private int value;
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public int getRange() {
+		return range;
+	}
+
+	public void setRange(int range) {
+		this.range = range;
+	}
+	
 }
 
  class Course{
