@@ -36,6 +36,22 @@ public class TestStreams {
 		return true;
 	}
 	public static void main(String... args){
+		
+		List<Integer> li = new ArrayList<Integer>();
+		li.add(1);
+		li.add(2);
+		li.add(3);
+		li.add(4);
+		li.add(5);
+		li.add(6);
+		
+		Map<Integer, List<Integer>> listEvenOrOd = li.stream()
+												.collect(Collectors.groupingBy(p -> p%2));
+		
+		listEvenOrOd.forEach((h,val) -> System.out.format("Age %s: %s\n",h,val));
+
+		
+		
 		List<String> sundayOpenAreas = new ArrayList<String>();
 		for (int i = 1; i <= sundayOpenAreas.size(); i++) {
 		    String area = sundayOpenAreas.get(i - 1);
@@ -219,6 +235,7 @@ public class TestStreams {
 		        new Person("Peter", 23),
 		        new Person("Pamela", 23),
 		        new Person("David", 12),
+		        new Person("David", 12),
 		        new Person("Pam", 12));
 		
 		boolean matchedResult = persons.stream()
@@ -247,6 +264,11 @@ public class TestStreams {
 		Map<Integer, List<Person>> personByAge = persons.stream()
 														.collect(Collectors.groupingBy(p -> p.age));
 		personByAge.forEach((age,p) -> System.out.format("Age %s: %s\n",age,p) );
+		
+		//group by composite key
+		Map<String, List<Person>> personByAgeName = persons.stream()
+				.collect(Collectors.groupingBy(p -> (p.name+p.age)));
+		personByAgeName.forEach((age,p) -> System.out.format("Age+Name %s: %s\n",age,p) );
 		
 		
 		//Average Age

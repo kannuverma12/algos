@@ -4,11 +4,11 @@ package com.my.trees;
 
 /* Class containing left and right child of current
 node and key value*/
-class Node {
+class NodeBT {
 	int data;
-	Node2 left, right;
+	NodeBT left, right;
 
-	public Node(int item) {
+	public NodeBT(int item) {
 		data = item;
 		left = right = null;
 	}
@@ -16,11 +16,11 @@ class Node {
 
 /* Class to print the left view */
 class BinaryTree {
-	Node2 root;
+	NodeBT root;
 	static int max_level = 0;
 
 	// recursive function to print left view
-	void leftViewUtil(Node2 node, int level) {
+	void leftViewUtil(NodeBT node, int level) {
 		// Base Case
 		if (node == null)
 			return;
@@ -45,11 +45,11 @@ class BinaryTree {
 	public static void main(String args[]) {
 		/* creating a binary tree and entering the nodes */
 		BinaryTree tree = new BinaryTree();
-		tree.root = new Node2(12);
-		tree.root.left = new Node2(10);
-		tree.root.right = new Node2(30);
-		tree.root.right.left = new Node2(25);
-		tree.root.right.right = new Node2(40);
+		tree.root = new NodeBT(12);
+		tree.root.left = new NodeBT(10);
+		tree.root.right = new NodeBT(30);
+		tree.root.right.left = new NodeBT(25);
+		tree.root.right.right = new NodeBT(40);
 
 		tree.leftView();
 	}

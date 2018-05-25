@@ -4,9 +4,11 @@ public class PrintExcelColumnNameFromColumnNumber {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		printString(26);
+		//System.out.println("char "+(char)((26 - 1) +'A'));
 		
-		System.out.println(""+((char)1)+'A');
+		printString(206);
+		
+		//System.out.println(""+((char)1)+'A');
 	}
 
 	private static void printString(int columnNumber) {
@@ -19,8 +21,7 @@ public class PrintExcelColumnNameFromColumnNumber {
 	            // Find remainder
 	            int rem = columnNumber % 26;
 	 
-	            // If remainder is 0, then a 
-	            // 'Z' must be there in output
+	            // If remainder is 0, then a 'Z' must be there in output
 	            if (rem == 0)
 	            {
 	                columnName.append("Z");
