@@ -1,10 +1,11 @@
 package com.my.stackarrayqueue;
-import java.io.*;
 
 
 public class Sort0s1s2s {
 
 
+	// check the below link for more understanding
+	//http://users.monash.edu/~lloyd/tildeAlgDS/Sort/Flag/
  
     // Sort the input array, the array is assumed to
     // have values in {0, 1, 2}
@@ -17,26 +18,26 @@ public class Sort0s1s2s {
         {
             switch (a[mid])
             {
-            case 0:
-            {
-                temp   =  a[lo];
-                a[lo]  = a[mid];
-                a[mid] = temp;
-                lo++;
-                mid++;
-                break;
-            }
-            case 1:
-                mid++;
-                break;
-            case 2:
-            {
-                temp = a[mid];
-                a[mid] = a[hi];
-                a[hi] = temp;
-                hi--;
-                break;
-            }
+	            case 0:
+	            {
+	                temp   =  a[lo];
+	                a[lo]  = a[mid];
+	                a[mid] = temp;
+	                lo++;
+	                mid++;
+	                break;
+	            }
+	            case 1:
+	                mid++;
+	                break;
+	            case 2:
+	            {
+	                temp = a[mid];
+	                a[mid] = a[hi];
+	                a[hi] = temp;
+	                hi--;
+	                break;
+	            }
             }
         }
     }
