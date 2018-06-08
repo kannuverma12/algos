@@ -2,10 +2,8 @@ package com.my.strings;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MakeAnagramByDeletion {
-
 
 	public static int numberNeeded(String first, String second) {
 		char[] ch1 = first.toCharArray();
@@ -41,9 +39,8 @@ public class MakeAnagramByDeletion {
 	}
 
 	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		String input1 = in.next();
-		String input2 = in.next();
+		String input1 = "spot";
+		String input2 = "poft";
 		System.out.println("No of characters deleted is " + numberNeeded(input1, input2));
 	}
 }

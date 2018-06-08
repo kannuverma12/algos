@@ -17,7 +17,7 @@ public class FindLeastCommonAncestor {
 	 * common ancestor.
 	 */
 	
-	Node root;
+	static Node root;
     private List<Integer> path1 = new ArrayList<>();
     private List<Integer> path2 = new ArrayList<>();
 
@@ -62,7 +62,12 @@ public class FindLeastCommonAncestor {
                             tree2.findLCA2(2, 4).data);
         
         System.out.println("***********  Ends ************");
-
+        
+        
+        System.out.println();
+        System.out.println("*********** Method 3 IDeserve ************");
+        Node lca = tree.getLCA(tree.root, tree2.root.left.right, tree2.root.left.left);
+        System.out.println("LCA(3, 6) = " +lca.data);
 	}
 	
 	/*
@@ -166,5 +171,24 @@ public class FindLeastCommonAncestor {
         // Otherwise check if left subtree or right subtree is LCA
         return (left_lca != null) ? left_lca : right_lca;
     }
+	
+	
+	 Node getLCA(Node curr, Node a, Node b) {
+		if(curr == null)
+			return null;
+		if(curr == a || curr == b)
+			return curr;
+		
+		Node left = getLCA(curr.left, a, b);
+		Node right = getLCA(curr.right, a, b);
+		
+		if(left != null && right != null)
+			return curr;
+		
+		if(left == null)
+			return right;
+		else
+			return left;
+	}
 
 }
