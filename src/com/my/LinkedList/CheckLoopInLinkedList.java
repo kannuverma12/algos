@@ -30,24 +30,22 @@ public class CheckLoopInLinkedList {
 	
 	
 	/*
-	 * Floyd’s Cycle-Finding Algorithm:
+	 *  Floyd’s Cycle-Finding Algorithm:
 		This is the fastest method. Traverse linked list using two pointers.  
 		Move one pointer by one and other pointer by two.  If these pointers meet 
 		at some node then there is a loop.  If pointers do not meet then linked 
 		list doesn’t have loop.
-	 */
-	
-	/*
-	 * This problem was solved by
-Floyd. The solution is named the Floyd cycle finding algorithm. It uses two pointers moving at
-different speeds to walk the linked list. Once they enter the loop they are expected to meet, which
-denotes that there is a loop.
-This works because the only way a faster moving pointer would point to the same location as a
-slower moving pointer is if somehow the entire list or a part of it is circular. Think of a tortoise
-and a hare running on a track. The faster running hare will catch up with the tortoise if they are
-running in a loop. As an example, consider the following example and trace out the Floyd
-algorithm. From the diagrams below we can see that after the final step they are meeting at some
-point in the loop which may not be the starting point of the loop.
+	 
+	 *  This problem was solved by
+		Floyd. The solution is named the Floyd cycle finding algorithm. It uses two pointers moving at
+		different speeds to walk the linked list. Once they enter the loop they are expected to meet, which
+		denotes that there is a loop.
+		This works because the only way a faster moving pointer would point to the same location as a
+		slower moving pointer is if somehow the entire list or a part of it is circular. Think of a tortoise
+		and a hare running on a track. The faster running hare will catch up with the tortoise if they are
+		running in a loop. As an example, consider the following example and trace out the Floyd
+		algorithm. From the diagrams below we can see that after the final step they are meeting at some
+		point in the loop which may not be the starting point of the loop.
 	 */
 	
 	private static boolean detectLoopUsingFloydMethod(Node head2) {
@@ -71,25 +69,16 @@ point in the loop which may not be the starting point of the loop.
 	
 	
 	/*
-	 * Problem-14 Check whether the given linked list is NULL-terminated. If there is a cycle, find
-the length of the loop.
-Solution: This solution is also an extension of the basic cycle detection problem. After finding the
-loop in the linked list, keep the slowPtr as it is. The fastPtr keeps on moving until it again comes
-back to slowPtr. While moving fastPtr, use a counter variable which increments at the rate of 1.
+	 * 	Problem-14 Check whether the given linked list is NULL-terminated. If there is a cycle, find
+		the length of the loop.
+		Solution: This solution is also an extension of the basic cycle detection problem. After finding the
+		loop in the linked list, keep the slowPtr as it is. The fastPtr keeps on moving until it again comes
+		back to slowPtr. While moving fastPtr, use a counter variable which increments at the rate of 1.
 	 */
-	
-	
-	
-	
-	
-	
-	
 
 
-	// Returns true if there is a loop in linked
-    // list else returns false.
+	// Returns true if there is a loop in linked list else returns false.
 	private static boolean detectLoop(Node head2) {
-		// TODO Auto-generated method stub
 		
 		Set<Node> set = new HashSet<Node>();
 		while(head2 != null) {
@@ -103,14 +92,8 @@ back to slowPtr. While moving fastPtr, use a counter variable which increments a
 
 	static public void push(int new_data)
     {
-        /* 1 & 2: Allocate the Node &
-                  Put in the data*/
         Node new_node = new Node(new_data);
-  
-        /* 3. Make next of new Node as head */
         new_node.next = head;
-  
-        /* 4. Move the head to point to new Node */
         head = new_node;
     }
 

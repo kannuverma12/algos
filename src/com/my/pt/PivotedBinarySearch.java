@@ -11,17 +11,14 @@ package com.my.pt;
 
 
 /*
- * Input arr[] = {3, 4, 5, 1, 2}
-Element to Search = 1
-  1) Find out pivot point and divide the array in two
-      sub-arrays. (pivot = 2) //Index of 5//
-  //2) Now call binary search for one of the two sub-arrays.
-//      (a) If element is greater than 0th element then
-//             search in left array
-//      (b) Else Search in right array
-//          (1 will go in else as 1 < 0th element(3))
-//  3) If element is found in selected sub-array then return index
-//     Else return -1.
+ * 	Input arr[] = {3, 4, 5, 1, 2}
+	Element to Search = 1
+	  1) Find out pivot point and divide the array in two sub-arrays. (pivot = 2) //Index of 5//
+	  2) Now call binary search for one of the two sub-arrays.
+	      (a) If element is greater than 0th element then search in left array
+	      (b) Else Search in right array (1 will go in else as 1 < 0th element(3))
+	  3) If element is found in selected sub-array then return index
+	     Else return -1.
  * 
  * 
  */
@@ -40,16 +37,15 @@ public class PivotedBinarySearch {
 	private static int pivotedBinarySearch(int[] arr, int n, int key) {
 			int pivot = findPivot(arr, 0, n-1);
 	       
-	       // If we didn't find a pivot, then 
-	       // array is not rotated at all
+	       // If we didn't find a pivot, then  array is not rotated at all
 	       if (pivot == -1)
 	           return binarySearch(arr, 0, n-1, key);
 	       
-	       // If we found a pivot, then first 
-	       // compare with pivot and then
+	       // If we found a pivot, then first compare with pivot and then
 	       // search in two subarrays around pivot
 	       if (arr[pivot] == key)
 	           return pivot;
+	       // if key is greater than 0th element, then search in first half
 	       if (arr[0] <= key)
 	           return binarySearch(arr, 0, pivot-1, key);
 	       return binarySearch(arr, pivot+1, n-1, key);
@@ -69,25 +65,22 @@ public class PivotedBinarySearch {
 	}
 
 	
-	/* Function to get pivot. For array 
-    3, 4, 5, 6, 1, 2 it returns
-    3 (index of 6) */
+	/* Function to get pivot. For array   3, 4, 5, 6, 1, 2 it returns 3 (index of 6) */
 	private static int findPivot(int[] arr, int low, int high) {
 		// base cases
-	       if (high < low)  
-	            return -1;
-	       if (high == low) 
-	            return low;
-	        
-	       /* low + (high - low)/2; */
-	       int mid = (low + high)/2;   
-	       if (mid < high && arr[mid] > arr[mid + 1])
-	           return mid;
-	       if (mid > low && arr[mid] < arr[mid - 1])
-	           return (mid-1);
-	       if (arr[low] >= arr[mid])
-	           return findPivot(arr, low, mid-1);
-	       return findPivot(arr, mid + 1, high);
+		if (high < low)
+			return -1;
+		if (high == low)
+			return low;
+
+		int mid = (low + high) / 2;
+		if (mid < high && arr[mid] > arr[mid + 1])
+			return mid;
+		if (mid > low && arr[mid] < arr[mid - 1])
+			return (mid - 1);
+		if (arr[low] >= arr[mid])
+			return findPivot(arr, low, mid - 1);
+		return findPivot(arr, mid + 1, high);
 	}
 
 }

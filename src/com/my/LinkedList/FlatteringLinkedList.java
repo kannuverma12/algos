@@ -60,7 +60,6 @@ public class FlatteringLinkedList {
 	}
 
 	FNode flatten(FNode root) {
-		// Base Cases
 		if (root == null || root.right == null)
 			return root;
 

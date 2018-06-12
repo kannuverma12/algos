@@ -22,50 +22,47 @@ public class ParenthesisMatching
         int len = exp.length();
         System.out.println("\nMatches and Mismatches:\n");
         boolean ret = false;
-        for (int i = 0; i < len; i++)
-        {    
-            char ch = exp.charAt(i);
-            if (ch == '(' || ch == '[' || ch == '{')
-                stk.push(ch);
-            else if(ch == ')'){
-            	char p = stk.peek();
-            	if(p == '('){
-            		ret = true;
-            		stk.pop();
-            	}
-            		
-            }
-            else if(ch == ']'){
-            	char p = stk.peek();
-            	if(p == '['){
-            		ret = true;
-            		stk.pop();
-            	}
-            		
-            }
-            else if(ch == '}'){
-            	char p = stk.peek();
-            	if(p == '{'){
-            		ret = true;
-            		stk.pop();
-            	}
-            		
-            }
-//            else if (ch == ')' || ch == ']' || ch == '}')
-//            {
-//                try
-//                {
-//                    int p = stk.pop() + 1;
-//                    ret = true;
-//                    System.out.println(ch+" at index "+(i+1)+" matched at index "+p);
-//                }
-//                catch(Exception e)
-//                {
-//                	ret = false;
-//                    System.out.println(ch+" at index "+(i+1)+" is unmatched");
-//                }
-//            }            
-        }
+		for (int i = 0; i < len; i++) {
+			char ch = exp.charAt(i);
+			if (ch == '(' || ch == '[' || ch == '{')
+				stk.push(ch);
+			else if (ch == ')') {
+				char p = stk.peek();
+				if (p == '(') {
+					ret = true;
+					stk.pop();
+				}
+
+			} else if (ch == ']') {
+				char p = stk.peek();
+				if (p == '[') {
+					ret = true;
+					stk.pop();
+				}
+
+			} else if (ch == '}') {
+				char p = stk.peek();
+				if (p == '{') {
+					ret = true;
+					stk.pop();
+				}
+
+			}
+			// else if (ch == ')' || ch == ']' || ch == '}')
+			// {
+			// try
+			// {
+			// int p = stk.pop() + 1;
+			// ret = true;
+			// System.out.println(ch+" at index "+(i+1)+" matched at index "+p);
+			// }
+			// catch(Exception e)
+			// {
+			// ret = false;
+			// System.out.println(ch+" at index "+(i+1)+" is unmatched");
+			// }
+			// }
+		}
         while (!stk.isEmpty() ){
         	ret = false;
         	stk.pop();

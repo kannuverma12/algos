@@ -7,7 +7,7 @@ public class ConvertTo4Bits {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		byte bytes[] = new byte[]{1};
+		byte bytes[] = new byte[]{12};
 	    String sbytes = getRealBinary(bytes);
 	    System.out.println(sbytes);
 	    System.out.println(sbytes.substring(4,8));

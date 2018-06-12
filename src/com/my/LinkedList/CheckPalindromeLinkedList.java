@@ -19,18 +19,18 @@ package com.my.LinkedList;
 
 /*
  * 
- * METHOD 2 (By reversing the list)
+ * 	METHOD 2 (By reversing the list)
 	This method takes O(n) time and O(1) extra space.
 	1) Get the middle of the linked list.
 	2) Reverse the second half of the linked list.
 	3) Check if the first half and second half are identical.
 	4) Construct the original linked list by reversing the second half again and attaching it back to the first half
 
-To divide the list in two halves, method 2 of this post is used.
-When number of nodes are even, the first and second half contain exactly half nodes. 
-The challenging thing in this method is to handle the case when number of nodes are odd. 
-We don’t want the middle node as part of any of the lists as we are going to compare
- them for equality. For odd case, we use a separate variable ‘midnode’.
+	To divide the list in two halves, method 2 of this post is used.
+	When number of nodes are even, the first and second half contain exactly half nodes. 
+	The challenging thing in this method is to handle the case when number of nodes are odd. 
+	We don’t want the middle node as part of any of the lists as we are going to compare
+	them for equality. For odd case, we use a separate variable ‘midnode’.
  * 
  * 
  * 
@@ -46,7 +46,6 @@ public class CheckPalindromeLinkedList {
 		CheckPalindromeLinkedList llist = new CheckPalindromeLinkedList();
  
         char str[] = {'a', 'b', 'a', 'c', 'a', 'b', 'a'};
-        String string = new String(str);
         for (int i = 0; i< 7 ; i++) {
             llist.push(str[i]);
             llist.printList(llist.head);
@@ -73,13 +72,11 @@ public class CheckPalindromeLinkedList {
 		boolean res = true;
 		
 		if(head != null && head.next != null) {
-			/* Get the middle of the list. Move slow_ptr by 1
-            and fast_ptrr by 2, slow_ptr will have the middle
-            node */
+			/* Get the middle of the list. Move slow_ptr by 1 and fast_ptrr by 2, 
+			 * slow_ptr will have the middle node */
 			while(fast_ptr != null  && fast_ptr.next != null) {
 				fast_ptr = fast_ptr.next.next;
-				/*We need previous of the slow_ptr for
-                linked lists  with odd elements */
+				/*We need previous of the slow_ptr for linked lists  with odd elements */
 				prev_of_slow_ptr = slow_ptr;
 				slow_ptr = slow_ptr.next;
 			}
@@ -154,31 +151,18 @@ public class CheckPalindromeLinkedList {
 		
 	}
 
-	/* Push a node to linked list. Note that this function
-	    changes the head */
-	 public void push(char new_data) 
-	 {
-	     /* Allocate the Node &
-	        Put in the data */
-	     Node new_node = new Node(new_data);
-	
-	     /* link the old list off the new one */
-	     new_node.next = head;
-	
-	     /* Move the head to point to new Node */
-	     head = new_node;
-	 }
-	
-	 // A utility function to print a given linked list
-	 void printList(Node ptr) 
-	 {
-	     while (ptr != null) 
-	     {
-	         System.out.print(ptr.data + "->");
-	         ptr = ptr.next;
-	     }
-	     System.out.println("NULL");
-	 }
+	public void push(char new_data) {
+		Node new_node = new Node(new_data);
+		new_node.next = head;
+		head = new_node;
+	}
 
+	void printList(Node ptr) {
+		while (ptr != null) {
+			System.out.print(ptr.data + "->");
+			ptr = ptr.next;
+		}
+		System.out.println("NULL");
+	}
 
 }

@@ -49,12 +49,11 @@ public class LongestIncreasingSubsequence {
 		 */
 		for (int i = 1; i < n; i++) {
 			res = _lis(arr, i);
-			if (arr[i - 1] < arr[n - 1] && res + 1 > max_ending_here)
+			if (arr[i-1] < arr[n-1] && res+1 > max_ending_here)
 				max_ending_here = res + 1;
 		}
 
-		// Compare max_ending_here with the overall max. And update the overall max if
-		// needed
+		// Compare max_ending_here with the overall max. And update the overall max if needed
 		if (max_ref < max_ending_here)
 			max_ref = max_ending_here;
 

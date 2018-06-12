@@ -12,11 +12,11 @@ public class PrintNthFromLast {
         llist.push(15);
         llist.push(35);
  
-        llist.printNthFromLast(4);
-        llist.printNthFromLast(llist.head,4);
+        llist.printNthFromLast(2);
+        llist.printNthFromLast(llist.head,2);
 
         
-        llist.printNthFromLastUsing2Pointers(4);
+        llist.printNthFromLastUsing2Pointers(2);
 	}
 
 	
@@ -51,21 +51,15 @@ public class PrintNthFromLast {
 	
 	public void push(int new_data)
     {
-        /* 1 & 2: Allocate the Node &
-                  Put in the data*/
         Node new_node = new Node(new_data);
- 
-        /* 3. Make next of new Node as head */
         new_node.next = head;
- 
-        /* 4. Move the head to point to new Node */
         head = new_node;
     }
 
 	
 	void printNthFromLast(Node head, int n) 
 	{
-	     int i = 0;
+	    int i = 0;
 	    if (head == null)
 	       return;
 	    printNthFromLast(head.next, n);
@@ -110,8 +104,7 @@ public class PrintNthFromLast {
 				main_ptr = main_ptr.next;
 				ref_ptr = ref_ptr.next;
 			}
-			System.out.println("Node no. "+n+" from last is "+
-                    main_ptr.data);
+			System.out.println("Usig 2 prts : Node no. "+n+" from last is "+ main_ptr.data);
 		}
 		
 	}

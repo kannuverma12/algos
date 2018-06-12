@@ -31,7 +31,7 @@ public class AnagramDifference {
         		//increment the count of each character in char_count array
             int x = char_count[s1.charAt(i) - 'a']++; 
             
-            System.out.println("Char = "+s1.charAt(i)+", x : "+x+", x_ : "+x_+", char-a : "+(s1.charAt(i) - 'a'));
+            //System.out.println("Char = "+s1.charAt(i)+", x : "+x+", x_ : "+x_+", char-a : "+(s1.charAt(i) - 'a'));
         }
  
         // iterate through the second string update char_count. if character is not found in char_count

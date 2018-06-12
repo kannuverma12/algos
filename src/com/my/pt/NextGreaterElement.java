@@ -3,12 +3,14 @@ package com.my.pt;
 
 /*
  * 
- * Given an array, print the Next Greater Element (NGE) for every element. The Next greater Element for an element x is the first greater element on the right side of x in array. Elements for which no greater element exist, consider next greater element as -1.
+ * 	Given an array, print the Next Greater Element (NGE) for every element. 
+ * 	The Next greater Element for an element x is the first greater element on the right side of x in array.
+ * 	 Elements for which no greater element exist, consider next greater element as -1.
 
-Examples:
-a) For any array, rightmost element always has next greater element as -1.
-b) For an array which is sorted in decreasing order, all elements have next greater element as -1.
-c) For the input array [4, 5, 2, 25}, the next greater elements for each element are as follows
+	Examples:
+	a) For any array, rightmost element always has next greater element as -1.
+	b) For an array which is sorted in decreasing order, all elements have next greater element as -1.
+	c) For the input array [4, 5, 2, 25}, the next greater elements for each element are as follows
  * 
  */
 
@@ -17,11 +19,11 @@ public class NextGreaterElement {
 	
 	
 /*
- * Method 1 (Simple)
-Use two loops: The outer loop picks all the elements one by one. 
-The inner loop looks for the first greater element for the element picked 
-by outer loop. If a greater element is found then that element is printed 
-as next, otherwise -1 is printed.
+ * 	Method 1 (Simple)
+	Use two loops: The outer loop picks all the elements one by one. 
+	The inner loop looks for the first greater element for the element picked 
+	by outer loop. If a greater element is found then that element is printed 
+	as next, otherwise -1 is printed.
  * 
  */
 
@@ -55,14 +57,14 @@ as next, otherwise -1 is printed.
 	/*
 	 * 
 	 * Method 2 (Using Stack)
-1) Push the first element to stack.
-2) Pick rest of the elements one by one and follow following steps in loop.
-….a) Mark the current element as next.
-….b) If stack is not empty, then pop an element from stack and compare it with next.
-….c) If next is greater than the popped element, then next is the next greater element for the popped element.
-….d) Keep popping from the stack while the popped element is smaller than next. next becomes the next greater element for all such popped elements
-….g) If next is smaller than the popped element, then push the popped element back.
-3) After the loop in step 2 is over, pop all the elements from stack and print -1 as next element for them.	
+		1) Push the first element to stack.
+		2) Pick rest of the elements one by one and follow following steps in loop.
+			….a) Mark the current element as next.
+			….b) If stack is not empty, then pop an element from stack and compare it with next.
+			….c) If next is greater than the popped element, then next is the next greater element for the popped element.
+			….d) Keep popping from the stack while the popped element is smaller than next. next becomes the next greater element for all such popped elements
+			….g) If next is smaller than the popped element, then push the popped element back.
+		3) After the loop in step 2 is over, pop all the elements from stack and print -1 as next element for them.	
 	 * 
 	 * 
 	 */
@@ -101,9 +103,8 @@ as next, otherwise -1 is printed.
             greater for it */
 			s.push(next);
 		}
-		/* After iterating over the loop, the remaining 
-        elements in stack do not have the next greater 
-        element, so print -1 for them */
+		/* After iterating over the loop, the remaining  elements in stack do not have the next greater 
+        		element, so print -1 for them */
 		
 		 while (s.isEmpty() == false) 
 	        {
@@ -121,43 +122,33 @@ c) Pushed back to the stack because next element is smaller.
 d) Popped from the stack in step 3 of algo.
 	 */
 	
-	static class stack 
-    {
-        int top;
-        int items[] = new int[100];
- 
-        // Stack functions to be used by printNGE
-        void push(int x) 
-        {
-            if (top == 99) 
-            {
-                System.out.println("Stack full");
-            } 
-            else
-            {
-                items[++top] = x;
-            }
-        }
- 
-        int pop() 
-        {
-            if (top == -1) 
-            {
-                System.out.println("Underflow error");
-                return -1;
-            } 
-            else
-            {
-                int element = items[top];
-                top--;
-                return element;
-            }
-        }
- 
-        boolean isEmpty() 
-        {
-            return (top == -1) ? true : false;
-        }
-    }
+	static class stack {
+		int top;
+		int items[] = new int[100];
+
+		// Stack functions to be used by printNGE
+		void push(int x) {
+			if (top == 99) {
+				System.out.println("Stack full");
+			} else {
+				items[++top] = x;
+			}
+		}
+
+		int pop() {
+			if (top == -1) {
+				System.out.println("Underflow error");
+				return -1;
+			} else {
+				int element = items[top];
+				top--;
+				return element;
+			}
+		}
+
+		boolean isEmpty() {
+			return (top == -1) ? true : false;
+		}
+	}
 
 }
