@@ -50,7 +50,7 @@ public class FindTopKOccurancesInALargeFileUsingHM {
 					System.out.println("File Size = "+fis.getChannel().size());
 					Thread.sleep(1*1000);
 			    	}else {
-				
+			    		
 					StringTokenizer st = new StringTokenizer(line, " ");
 					while (st.hasMoreTokens()) {
 						String tmp = st.nextToken().toLowerCase();

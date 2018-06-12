@@ -26,7 +26,7 @@ public class ImplementQueueUsingOneStack {
 	public static void main(String[] args) {
 
 		/* Create a queue with items 1 2 3*/
-        MyQueue q = new MyQueue();
+        MyQueue1 q = new MyQueue1();
         q.stack1 = new Stack<>();
          
         enQueue(q, 1);
@@ -39,7 +39,7 @@ public class ImplementQueueUsingOneStack {
         System.out.print(deQueue(q) + " ");
 	}
 	
-	static int deQueue(MyQueue q) {
+	static int deQueue(MyQueue1 q) {
 		int x, res = 0;
 		if (q.stack1.isEmpty()) {
 			System.out.println("Q is Empty");
@@ -70,7 +70,7 @@ public class ImplementQueueUsingOneStack {
 		return top_ref.pop();
 	}
 	
-	static void enQueue(MyQueue q,int x)
+	static void enQueue(MyQueue1 q,int x)
     {
         push(q.stack1,x);
     }
@@ -83,6 +83,6 @@ public class ImplementQueueUsingOneStack {
 
 }
 
-class MyQueue{
+class MyQueue1{
 	Stack<Integer> stack1;
 }

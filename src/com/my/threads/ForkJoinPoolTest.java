@@ -52,7 +52,12 @@ class Solver extends RecursiveAction {
         this.list = array;
     }
 
-    @Override
+    public long getResult() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
     protected void compute() {
         if (list.length == 1) {
             result = list[0];
@@ -66,4 +71,9 @@ class Solver extends RecursiveAction {
             result = s1.result + s2.result;
         }
     }
+
+	private void forkJoin(Solver s1, Solver s2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
