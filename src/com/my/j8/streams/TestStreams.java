@@ -79,14 +79,14 @@ public class TestStreams {
 		//list.stream().collect(collector)
 		
 		Stream.of("a1","a2","a3")
-		.map(i -> i + "ds")
-		.findFirst()
-		.ifPresent(System.out::println);
+				.map(i -> i + "ds")
+				.findFirst()
+				.ifPresent(System.out::println);
 		
 		Arrays.asList("my", "name", "karan")
-		.stream()
-		.map(i -> "Item Length is : "+i.length())
-		.forEach(System.out::println);
+				.stream()
+				.map(i -> "Item Length is : "+i.length())
+				.forEach(System.out::println);
 		
 		
 		Arrays.stream(new int[]{1, 2, 3})
@@ -533,12 +533,33 @@ public class TestStreams {
 		
 		groupByRange();
 		
+		sort2DArray(true);
+		
 		
 	}
 	
 	
 	
+	public static void sort2DArray(boolean sortByFirstName) {
+		System.out.println("***** Sorting 2D Array *****");
+		String[][] arr = {{"Bill","Jones"}, 
+						    {"Janet","Kline"},
+						    {"George","Bailey"}, 
+						    {"Ellan","Sanches"}, 
+						    {"Tom","Nguyen"}};
+		List<String> l =  convertToList(arr);
+		System.out.println("List = "+l.toString());
+		if(sortByFirstName)
+			Collections.sort(l, (s1, s2) -> s1.split(" ")[0].compareTo(s2.split(" ")[0]));
+		else
+			Collections.sort(l, (s1, s2) -> s1.split(" ")[1].compareTo(s2.split(" ")[1]));
+		System.out.println("Sorted List = "+l.toString());
+	}
 	
+	public static List<String> convertToList(String[][] arr){
+		List<String> l8 = Arrays.asList(arr).stream().map(a -> a[0] + " "+ a[1]).collect(Collectors.toList());
+		return l8;
+	}
 	
 	private static void flatMapTest() {
 		System.out.println("*****Flat Map Test*****");
@@ -660,7 +681,6 @@ public class TestStreams {
 	}
 
 }
-
 
 
 class MyBigDecimal{
